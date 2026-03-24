@@ -76,6 +76,8 @@ An interactive browser dashboard opens automatically with 12 navigable sections,
 - **Languages** — detected by file extension with file counts
 - **Onboarding score** — 0–100 score with severity-graded friction issues
 
+![Friction Analysis](./screenshots/repo2.png)
+
 ### Deep analysis (9 passes, runs by default)
 
 | Pass | What it tells you |
