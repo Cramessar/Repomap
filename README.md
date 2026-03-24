@@ -33,6 +33,16 @@ python repomap.py <repo-url>
 
 repomap generates that map automatically, directly from the code that's actually running. It doesn't ask anyone to write anything. You point it at a repo URL and it does the rest.
 
+
+## ✅ Add:
+
+```md
+---
+
+### 👀 What this looks like
+
+![Dashboard Overview](./screenshots/repo1.png)
+
 ---
 
 ## What you get
