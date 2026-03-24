@@ -33,12 +33,6 @@ python repomap.py <repo-url>
 
 repomap generates that map automatically, directly from the code that's actually running. It doesn't ask anyone to write anything. You point it at a repo URL and it does the rest.
 
-
-
-### 👀 What this looks like
-
-![Dashboard Overview](./screenshots/repo1.png)
-
 ---
 
 ## What you get
@@ -61,6 +55,9 @@ Running repomap against a repo generates several outputs depending on which flag
 ### With `--serve`
 An interactive browser dashboard opens automatically with 12 navigable sections, a searchable route table, a searchable dependency table, and a live force-directed symbol graph you can drag, zoom, and explore. Check out the symbol graph I had a really great time checking different repos with it.
 
+
+![Dashboard Overview](./screenshots/repo1.png)
+
 ---
 
 ## What it analyzes
@@ -76,7 +73,7 @@ An interactive browser dashboard opens automatically with 12 navigable sections,
 - **Languages** — detected by file extension with file counts
 - **Onboarding score** — 0–100 score with severity-graded friction issues
 
-![Friction Analysis](./screenshots/repo2.png)
+![First Day / Getting Started](./screenshots/repo2.png)
 
 ### Deep analysis (9 passes, runs by default)
 
@@ -92,8 +89,13 @@ An interactive browser dashboard opens automatically with 12 navigable sections,
 | **Hidden complexity** | Scans for 11 signals: dynamic dispatch (`getattr`/`eval`), monkey patching, global mutable state, threading/asyncio, deep nesting (5+ indent levels), god files (500+ lines), magic numbers, TODO/FIXME debt, `subprocess(shell=True)`, possible hardcoded credentials, and bare `except:` clauses |
 | **Flow trace** | Traces import/require chains from entry points up to 3 levels deep, builds a dependency graph, and surfaces the most-imported modules — the files you need to understand first |
 
+![Hidden Complexity](./screenshots/repo3.png)
+
+
 ### Symbol graph (`--symbols`)
 Two-pass AST analysis across every source file. Pass 1 extracts all public function, class, variable, constant, and type definitions. Pass 2 finds every file that imports them. The result is a complete map of your codebase's internal API surface: what each file exports, who consumes it, and where.
+
+![Symbol Graph](./screenshots/repo4.png)
 
 ---
 
