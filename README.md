@@ -197,8 +197,10 @@ Add `--llm-full-report` for a deeper 3-paragraph onboarding narrative covering t
 | `llm.py` | Provider-agnostic LLM client (Anthropic, OpenAI, Ollama, openai-compat) |
 | `COMMANDS.md` | Full flag reference with examples for every option |
 
-*Obligatory Cat Gif*
 ---
+
+*Obligatory Cat Gif*
+
 ![Obligatory Cat Gif](./screenshots/cat.gif)
 
 ---
