@@ -42,7 +42,7 @@ repomap generates that map automatically, directly from the code that's actually
 ### 👀 What this looks like
 
 ![Dashboard Overview](./screenshots/repo1.png)
-
+```
 ---
 
 ## What you get
