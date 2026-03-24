@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 repomap v3 — paste a repo URL, get a first-pass onboarding friction report.
 Supports optional LLM-powered entry point summarization via Anthropic, OpenAI,
