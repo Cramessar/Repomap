@@ -198,6 +198,7 @@ Add `--llm-full-report` for a deeper 3-paragraph onboarding narrative covering t
 | `COMMANDS.md` | Full flag reference with examples for every option |
 
 *cat gif possible*
+![Obligatory Cat Gif](./screenshots/cat.gif)
 
 ---
 
