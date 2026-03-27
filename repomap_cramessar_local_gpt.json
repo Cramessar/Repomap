@@ -1,0 +1,956 @@
+{
+  "repo_url": "https://github.com/cramessar/local-gpt",
+  "scanned_at": "2026-03-24T02:20:49.073954+00:00",
+  "file_count": 36,
+  "dir_count": 9,
+  "languages": {
+    "Python": 12,
+    "TypeScript": 6,
+    "React/TSX": 5,
+    "JavaScript": 1
+  },
+  "entry_points": [
+    "backend\\Dockerfile",
+    "backend\\app.py",
+    "docker-compose.yml",
+    "web\\Dockerfile"
+  ],
+  "routes": [],
+  "configs": [
+    "backend\\requirements.txt",
+    "web\\.env.example",
+    "web\\package-lock.json",
+    "web\\package.json",
+    "web\\tsconfig.json"
+  ],
+  "models": [
+    "backend\\tool_router.py"
+  ],
+  "tests": [],
+  "docs": [
+    "README.md"
+  ],
+  "ci": [],
+  "has_lockfile": true,
+  "llm_provider": null,
+  "llm_model": null,
+  "llm_entry_summary": null,
+  "llm_onboarding_report": null,
+  "analysis": {
+    "first_day_path": {
+      "steps": [
+        {
+          "order": 1,
+          "action": "Read README",
+          "target": "README.md",
+          "status": "found",
+          "note": "Start here for project overview."
+        },
+        {
+          "order": 2,
+          "action": "Verify Python runtime",
+          "target": "python3 --version",
+          "status": "manual",
+          "note": "Ensure Python is installed before continuing."
+        },
+        {
+          "order": 3,
+          "action": "Verify TypeScript runtime",
+          "target": "node --version && npx tsc --version",
+          "status": "manual",
+          "note": "Ensure TypeScript is installed before continuing."
+        },
+        {
+          "order": 4,
+          "action": "Copy env file",
+          "target": "cp web\\.env.example .env",
+          "status": "found",
+          "note": "Fill in secrets/credentials before running."
+        },
+        {
+          "order": 5,
+          "action": "Install dependencies",
+          "target": "pip install -r requirements.txt",
+          "status": "found",
+          "note": "pip install -r requirements.txt OR npm install"
+        },
+        {
+          "order": 6,
+          "action": "Start services",
+          "target": "docker-compose up -d",
+          "status": "found",
+          "note": "Brings up databases, caches, and other services."
+        },
+        {
+          "order": 7,
+          "action": "Run the project",
+          "target": "python app.py  (or: flask run)",
+          "status": "found",
+          "note": "Start the application."
+        },
+        {
+          "order": 8,
+          "action": "Run tests",
+          "target": "no test suite found",
+          "status": "missing",
+          "note": "No tests detected — explore manually."
+        },
+        {
+          "order": 9,
+          "action": "Read contribution guide",
+          "target": "CONTRIBUTING.md",
+          "status": "missing",
+          "note": "No CONTRIBUTING.md — ask the team about workflow."
+        }
+      ],
+      "completeness": 56
+    },
+    "naming_consistency": {
+      "files": {
+        "dominant": "snake_case",
+        "breakdown": {
+          "snake_case": {
+            "count": 14,
+            "pct": 74,
+            "examples": [
+              "backend\\app.py",
+              "backend\\chunking.py",
+              "backend\\embeddings.py"
+            ]
+          },
+          "mixed/other": {
+            "count": 3,
+            "pct": 16,
+            "examples": [
+              "backend\\tools\\__init__.py",
+              "web\\next-env.d.ts",
+              "web\\next.config.js"
+            ]
+          },
+          "camelCase": {
+            "count": 1,
+            "pct": 5,
+            "examples": [
+              "web\\src\\lib\\systemPrompt.ts"
+            ]
+          },
+          "kebab-case": {
+            "count": 1,
+            "pct": 5,
+            "examples": [
+              "web\\src\\pages\\api\\ollama-models.ts"
+            ]
+          }
+        },
+        "consistent": false,
+        "clash_pct": 26,
+        "clashing_styles": {
+          "mixed/other": [
+            "backend\\tools\\__init__.py",
+            "web\\next-env.d.ts",
+            "web\\next.config.js"
+          ]
+        }
+      },
+      "dirs": {
+        "dominant": "snake_case",
+        "breakdown": {
+          "snake_case": {
+            "count": 9,
+            "pct": 100,
+            "examples": [
+              "backend",
+              "web",
+              "backend\\tools"
+            ]
+          }
+        },
+        "consistent": true,
+        "clash_pct": 0
+      },
+      "functions": {
+        "dominant": "mixed/other",
+        "breakdown": {
+          "mixed/other": {
+            "count": 21,
+            "pct": 51,
+            "examples": [
+              "backend\\app.py::_vllm_base",
+              "backend\\app.py::_ensure_upload_dir",
+              "backend\\app.py::_shutdown_nvml"
+            ]
+          },
+          "snake_case": {
+            "count": 20,
+            "pct": 49,
+            "examples": [
+              "backend\\app.py::root",
+              "backend\\app.py::debug_paths",
+              "backend\\chunking.py::split_into_chunks"
+            ]
+          }
+        },
+        "consistent": false,
+        "clash_pct": 49,
+        "clashing_styles": {
+          "snake_case": [
+            "backend\\app.py::root",
+            "backend\\app.py::debug_paths",
+            "backend\\chunking.py::split_into_chunks"
+          ]
+        }
+      },
+      "classes": {
+        "dominant": "PascalCase",
+        "breakdown": {
+          "PascalCase": {
+            "count": 1,
+            "pct": 100,
+            "examples": [
+              "backend\\tool_router.py::ToolRequest"
+            ]
+          }
+        },
+        "consistent": true,
+        "clash_pct": 0
+      },
+      "issues": [
+        "Files: dominant style is snake_case but 26% use mixed/other",
+        "Functions: dominant style is mixed/other but 49% use snake_case"
+      ],
+      "overall_consistent": false
+    },
+    "entry_point_confidence": {
+      "scored": [
+        {
+          "path": "backend\\app.py",
+          "score": 65,
+          "confidence": "medium",
+          "signals": [
+            "canonical entry point filename",
+            "shallow nesting",
+            "framework bootstrap detected"
+          ]
+        },
+        {
+          "path": "docker-compose.yml",
+          "score": 45,
+          "confidence": "medium",
+          "signals": [
+            "infrastructure entry file",
+            "root-level file"
+          ]
+        },
+        {
+          "path": "backend\\Dockerfile",
+          "score": 35,
+          "confidence": "low",
+          "signals": [
+            "infrastructure entry file",
+            "shallow nesting"
+          ]
+        },
+        {
+          "path": "web\\Dockerfile",
+          "score": 35,
+          "confidence": "low",
+          "signals": [
+            "infrastructure entry file",
+            "shallow nesting"
+          ]
+        }
+      ],
+      "primary": [],
+      "secondary": [
+        "backend\\app.py",
+        "docker-compose.yml"
+      ],
+      "noise": [
+        "backend\\Dockerfile",
+        "web\\Dockerfile"
+      ],
+      "top_entry": "backend\\app.py"
+    },
+    "flow_trace": {
+      "entry_points_traced": [
+        "backend/app.py",
+        "docker-compose.yml"
+      ],
+      "graph": {
+        "backend/app.py": [
+          "backend/rag_routes.py",
+          "backend/tool_router.py"
+        ],
+        "backend/rag_routes.py": [
+          "backend/file_extract.py",
+          "backend/vectorstore.py"
+        ],
+        "backend/file_extract.py": [],
+        "backend/vectorstore.py": [],
+        "backend/tool_router.py": [
+          "backend/tools/rag.py",
+          "backend/vectorstore.py"
+        ],
+        "backend/tools/rag.py": [],
+        "docker-compose.yml": []
+      },
+      "node_count": 7,
+      "edge_count": 6,
+      "most_imported": [
+        {
+          "file": "backend/vectorstore.py",
+          "import_count": 2
+        },
+        {
+          "file": "backend/tool_router.py",
+          "import_count": 1
+        },
+        {
+          "file": "backend/rag_routes.py",
+          "import_count": 1
+        },
+        {
+          "file": "backend/file_extract.py",
+          "import_count": 1
+        },
+        {
+          "file": "backend/tools/rag.py",
+          "import_count": 1
+        }
+      ]
+    },
+    "parameter_tracking": {
+      "env_vars": [
+        {
+          "var": "FILE_SANDBOX",
+          "referenced_in": [
+            "backend\\app.py",
+            "backend\\rag_routes.py",
+            "backend\\tools\\files.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "OLLAMA_URL",
+          "referenced_in": [
+            "web\\src\\lib\\llm.ts",
+            "web\\src\\pages\\api\\chat.ts",
+            "web\\src\\pages\\api\\ollama-models.ts"
+          ],
+          "documented": true
+        },
+        {
+          "var": "OPENAI_API_KEY",
+          "referenced_in": [
+            "web\\src\\lib\\llm.ts",
+            "web\\src\\pages\\api\\chat.ts"
+          ],
+          "documented": false
+        },
+        {
+          "var": "OPENAI_BASE_URL",
+          "referenced_in": [
+            "web\\src\\lib\\llm.ts",
+            "web\\src\\pages\\api\\chat.ts"
+          ],
+          "documented": false
+        },
+        {
+          "var": "RAG_DB_PATH",
+          "referenced_in": [
+            "backend\\tools\\rag.py",
+            "backend\\vectorstore.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "CHROMA_ANONYMIZED_TELEMETRY",
+          "referenced_in": [
+            "backend\\vectorstore.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "CHUNK_OVERLAP",
+          "referenced_in": [
+            "backend\\chunking.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "CHUNK_SIZE",
+          "referenced_in": [
+            "backend\\chunking.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "EMBED_MODEL",
+          "referenced_in": [
+            "backend\\embeddings.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "ENABLE_GPU_METRICS",
+          "referenced_in": [
+            "backend\\app.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "FRONTEND_ORIGIN",
+          "referenced_in": [
+            "backend\\app.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "NEXT_PUBLIC_TOOLSERVER_URL",
+          "referenced_in": [
+            "web\\src\\lib\\toolserver.ts"
+          ],
+          "documented": true
+        },
+        {
+          "var": "TOOLS_URL",
+          "referenced_in": [
+            "web\\src\\pages\\api\\chat.ts"
+          ],
+          "documented": true
+        },
+        {
+          "var": "VLLM_HOST",
+          "referenced_in": [
+            "backend\\app.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "VLLM_PORT",
+          "referenced_in": [
+            "backend\\app.py"
+          ],
+          "documented": false
+        }
+      ],
+      "env_var_count": 15,
+      "undocumented_env_vars": [
+        {
+          "var": "FILE_SANDBOX",
+          "referenced_in": [
+            "backend\\app.py",
+            "backend\\rag_routes.py",
+            "backend\\tools\\files.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "OPENAI_API_KEY",
+          "referenced_in": [
+            "web\\src\\lib\\llm.ts",
+            "web\\src\\pages\\api\\chat.ts"
+          ],
+          "documented": false
+        },
+        {
+          "var": "OPENAI_BASE_URL",
+          "referenced_in": [
+            "web\\src\\lib\\llm.ts",
+            "web\\src\\pages\\api\\chat.ts"
+          ],
+          "documented": false
+        },
+        {
+          "var": "RAG_DB_PATH",
+          "referenced_in": [
+            "backend\\tools\\rag.py",
+            "backend\\vectorstore.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "CHROMA_ANONYMIZED_TELEMETRY",
+          "referenced_in": [
+            "backend\\vectorstore.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "CHUNK_OVERLAP",
+          "referenced_in": [
+            "backend\\chunking.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "CHUNK_SIZE",
+          "referenced_in": [
+            "backend\\chunking.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "EMBED_MODEL",
+          "referenced_in": [
+            "backend\\embeddings.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "ENABLE_GPU_METRICS",
+          "referenced_in": [
+            "backend\\app.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "FRONTEND_ORIGIN",
+          "referenced_in": [
+            "backend\\app.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "VLLM_HOST",
+          "referenced_in": [
+            "backend\\app.py"
+          ],
+          "documented": false
+        },
+        {
+          "var": "VLLM_PORT",
+          "referenced_in": [
+            "backend\\app.py"
+          ],
+          "documented": false
+        }
+      ],
+      "config_keys": [],
+      "cli_flags": [],
+      "documented_count": 3,
+      "documented_vars": [
+        "NEXT_PUBLIC_TOOLSERVER_URL",
+        "OLLAMA_URL",
+        "TOOLS_URL"
+      ]
+    },
+    "route_detection": {
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/",
+          "file": "backend/app.py",
+          "framework": "FastAPI/Flask"
+        },
+        {
+          "method": "GET",
+          "path": "/debug/paths",
+          "file": "backend/app.py",
+          "framework": "FastAPI/Flask"
+        },
+        {
+          "method": "GET",
+          "path": "/health",
+          "file": "backend/app.py",
+          "framework": "FastAPI/Flask"
+        },
+        {
+          "method": "GET",
+          "path": "/metrics/sse",
+          "file": "backend/app.py",
+          "framework": "FastAPI/Flask"
+        },
+        {
+          "method": "GET",
+          "path": "/rag/diag",
+          "file": "backend/rag_routes.py",
+          "framework": "FastAPI/Flask"
+        },
+        {
+          "method": "GET",
+          "path": "/rag/file/{saved_name}",
+          "file": "backend/rag_routes.py",
+          "framework": "FastAPI/Flask"
+        },
+        {
+          "method": "GET",
+          "path": "/rag/list",
+          "file": "backend/rag_routes.py",
+          "framework": "FastAPI/Flask"
+        },
+        {
+          "method": "POST",
+          "path": "/rag/upload",
+          "file": "backend/rag_routes.py",
+          "framework": "FastAPI/Flask"
+        },
+        {
+          "method": "POST",
+          "path": "/rag/legacy-upload",
+          "file": "backend/tool_router.py",
+          "framework": "FastAPI/Flask"
+        },
+        {
+          "method": "POST",
+          "path": "/tool",
+          "file": "backend/tool_router.py",
+          "framework": "FastAPI/Flask"
+        }
+      ],
+      "total": 10,
+      "by_framework": {
+        "FastAPI/Flask": [
+          {
+            "method": "GET",
+            "path": "/",
+            "file": "backend/app.py",
+            "framework": "FastAPI/Flask"
+          },
+          {
+            "method": "GET",
+            "path": "/health",
+            "file": "backend/app.py",
+            "framework": "FastAPI/Flask"
+          },
+          {
+            "method": "GET",
+            "path": "/debug/paths",
+            "file": "backend/app.py",
+            "framework": "FastAPI/Flask"
+          },
+          {
+            "method": "GET",
+            "path": "/metrics/sse",
+            "file": "backend/app.py",
+            "framework": "FastAPI/Flask"
+          },
+          {
+            "method": "GET",
+            "path": "/rag/list",
+            "file": "backend/rag_routes.py",
+            "framework": "FastAPI/Flask"
+          },
+          {
+            "method": "POST",
+            "path": "/rag/upload",
+            "file": "backend/rag_routes.py",
+            "framework": "FastAPI/Flask"
+          },
+          {
+            "method": "GET",
+            "path": "/rag/diag",
+            "file": "backend/rag_routes.py",
+            "framework": "FastAPI/Flask"
+          },
+          {
+            "method": "GET",
+            "path": "/rag/file/{saved_name}",
+            "file": "backend/rag_routes.py",
+            "framework": "FastAPI/Flask"
+          },
+          {
+            "method": "POST",
+            "path": "/tool",
+            "file": "backend/tool_router.py",
+            "framework": "FastAPI/Flask"
+          },
+          {
+            "method": "POST",
+            "path": "/rag/legacy-upload",
+            "file": "backend/tool_router.py",
+            "framework": "FastAPI/Flask"
+          }
+        ]
+      },
+      "by_method": {
+        "GET": 7,
+        "POST": 3
+      },
+      "frameworks_detected": [
+        "FastAPI/Flask"
+      ]
+    },
+    "dependency_impact": {
+      "deps": [
+        {
+          "name": "fastapi",
+          "version": "*",
+          "file_count": 3,
+          "dirs_affected": [
+            "backend"
+          ],
+          "impact": "low"
+        },
+        {
+          "name": "psutil",
+          "version": "*",
+          "file_count": 2,
+          "dirs_affected": [
+            "backend"
+          ],
+          "impact": "low"
+        },
+        {
+          "name": "chromadb",
+          "version": ">=0.5.0",
+          "file_count": 2,
+          "dirs_affected": [
+            "backend"
+          ],
+          "impact": "low"
+        },
+        {
+          "name": "openpyxl",
+          "version": ">=3.1.5          # For .xlsx of Excel files",
+          "file_count": 2,
+          "dirs_affected": [
+            "backend"
+          ],
+          "impact": "low"
+        },
+        {
+          "name": "aiohttp",
+          "version": ">=3.9",
+          "file_count": 1,
+          "dirs_affected": [
+            "backend"
+          ],
+          "impact": "low"
+        },
+        {
+          "name": "pynvml",
+          "version": ">=11.5.0",
+          "file_count": 1,
+          "dirs_affected": [
+            "backend"
+          ],
+          "impact": "low"
+        },
+        {
+          "name": "pymupdf",
+          "version": "==1.24.9          # PDF extraction (fast, native)",
+          "file_count": 1,
+          "dirs_affected": [
+            "backend"
+          ],
+          "impact": "low"
+        },
+        {
+          "name": "pdfminer.six",
+          "version": "==20240706   # PDF fallback extractor",
+          "file_count": 1,
+          "dirs_affected": [
+            "backend"
+          ],
+          "impact": "low"
+        },
+        {
+          "name": "pytesseract",
+          "version": "*",
+          "file_count": 1,
+          "dirs_affected": [
+            "backend"
+          ],
+          "impact": "low"
+        }
+      ],
+      "total": 15,
+      "referenced_count": 9,
+      "possibly_unused": [
+        "uvicorn",
+        "python-multipart",
+        "sentence-transformers",
+        "python-docx",
+        "pycryptodome",
+        "pillow"
+      ],
+      "high_impact": []
+    },
+    "hidden_complexity": {
+      "findings": [
+        {
+          "signal": "magic_numbers",
+          "description": "Magic numbers in logic — undocumented constants",
+          "file_count": 11,
+          "total_occurrences": 62,
+          "severity": "high",
+          "examples": [
+            {
+              "file": "backend\\app.py",
+              "occurrences": 5,
+              "first_line": 37
+            },
+            {
+              "file": "backend\\chunking.py",
+              "occurrences": 2,
+              "first_line": 5
+            },
+            {
+              "file": "backend\\rag.py",
+              "occurrences": 4,
+              "first_line": 8
+            }
+          ]
+        },
+        {
+          "signal": "global_state",
+          "description": "Global mutable state — shared across modules",
+          "file_count": 7,
+          "total_occurrences": 13,
+          "severity": "medium",
+          "examples": [
+            {
+              "file": "backend\\app.py",
+              "occurrences": 5,
+              "first_line": 16
+            },
+            {
+              "file": "backend\\embeddings.py",
+              "occurrences": 1,
+              "first_line": 6
+            },
+            {
+              "file": "backend\\rag_routes.py",
+              "occurrences": 1,
+              "first_line": 14
+            }
+          ]
+        },
+        {
+          "signal": "deep_nesting",
+          "description": "Function with deep nesting (>4 levels) detected",
+          "file_count": 3,
+          "total_occurrences": 3,
+          "severity": "medium",
+          "examples": [
+            {
+              "file": "backend\\app.py",
+              "max_indent_depth": 7
+            },
+            {
+              "file": "backend\\file_extract.py",
+              "max_indent_depth": 6
+            },
+            {
+              "file": "backend\\rag_routes.py",
+              "max_indent_depth": 5
+            }
+          ]
+        },
+        {
+          "signal": "threading",
+          "description": "Concurrency (threading/asyncio) — race conditions possible",
+          "file_count": 1,
+          "total_occurrences": 1,
+          "severity": "low",
+          "examples": [
+            {
+              "file": "backend\\app.py",
+              "occurrences": 1,
+              "first_line": 179
+            }
+          ]
+        }
+      ],
+      "total_signals": 4,
+      "high_severity": [
+        {
+          "signal": "magic_numbers",
+          "description": "Magic numbers in logic — undocumented constants",
+          "file_count": 11,
+          "total_occurrences": 62,
+          "severity": "high",
+          "examples": [
+            {
+              "file": "backend\\app.py",
+              "occurrences": 5,
+              "first_line": 37
+            },
+            {
+              "file": "backend\\chunking.py",
+              "occurrences": 2,
+              "first_line": 5
+            },
+            {
+              "file": "backend\\rag.py",
+              "occurrences": 4,
+              "first_line": 8
+            }
+          ]
+        }
+      ],
+      "source_lines_scanned": 1929,
+      "large_files": []
+    },
+    "architecture": {
+      "primary": "fullstack_spa",
+      "label": "Full-Stack SPA",
+      "description": "Frontend SPA (React/Vue/Angular/Svelte) backed by an API server.",
+      "confidence": "medium",
+      "candidates": [
+        {
+          "arch": "fullstack_spa",
+          "label": "Full-Stack SPA",
+          "score": 5,
+          "evidence": [
+            "dir: api",
+            "code: 'next' in backend\\vectorstore.py"
+          ]
+        },
+        {
+          "arch": "monolith",
+          "label": "Monolithic Web App",
+          "score": 4,
+          "evidence": [
+            "file: app.py"
+          ]
+        },
+        {
+          "arch": "microservices",
+          "label": "Microservices",
+          "score": 4,
+          "evidence": [
+            "file: docker-compose.yml"
+          ]
+        }
+      ],
+      "all_scores": {
+        "fullstack_spa": 5,
+        "monolith": 4,
+        "microservices": 4
+      }
+    }
+  },
+  "friction": [
+    {
+      "key": "no_contributing",
+      "message": "No CONTRIBUTING guide — contribution process unclear.",
+      "severity": "medium"
+    },
+    {
+      "key": "no_tests",
+      "message": "No test directory found — test coverage unknown.",
+      "severity": "medium"
+    },
+    {
+      "key": "many_languages",
+      "message": "3+ languages detected — polyglot repo, steeper learning curve.",
+      "severity": "low"
+    },
+    {
+      "key": "has_docker",
+      "message": "Docker present — good, environment setup is reproducible.",
+      "severity": "positive"
+    },
+    {
+      "key": "has_lockfile",
+      "message": "Dependency lockfile present — deterministic installs.",
+      "severity": "positive"
+    }
+  ],
+  "score": {
+    "value": 85,
+    "label": "Good"
+  }
+}

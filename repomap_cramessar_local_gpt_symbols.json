@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-03-24T02:20:49.226699+00:00",
+  "repo_path": "C:\\Users\\chris\\AppData\\Local\\Temp\\repomap_ose5d3cb\\repo",
+  "total_symbols": 1,
+  "total_files": 24,
+  "by_kind": {
+    "function": 15,
+    "type": 1,
+    "variable": 1
+  },
+  "top_exporters": [
+    {
+      "file": "backend/vectorstore.py",
+      "symbol_count": 3
+    },
+    {
+      "file": "backend/tools/files.py",
+      "symbol_count": 3
+    },
+    {
+      "file": "web/src/lib/toolserver.ts",
+      "symbol_count": 3
+    },
+    {
+      "file": "backend/tools/rag.py",
+      "symbol_count": 2
+    },
+    {
+      "file": "backend/rag_routes.py",
+      "symbol_count": 1
+    },
+    {
+      "file": "backend/rag.py",
+      "symbol_count": 1
+    },
+    {
+      "file": "backend/file_extract.py",
+      "symbol_count": 1
+    },
+    {
+      "file": "backend/tools/system.py",
+      "symbol_count": 1
+    },
+    {
+      "file": "web/src/components/ResourcePanel.tsx",
+      "symbol_count": 1
+    },
+    {
+      "file": "web/src/components/DocsRagPanel.tsx",
+      "symbol_count": 1
+    }
+  ],
+  "symbols": [
+    {
+      "name": "rag_upsert",
+      "kind": "function",
+      "defined_in": "backend/tools/rag.py",
+      "line": 12,
+      "signature": "def rag_upsert(items: List[dict], **kwargs):",
+      "exported": true,
+      "used_in": [
+        "backend/tool_router.py",
+        "backend/tools/__init__.py"
+      ],
+      "file_count": 2,
+      "use_count": 2,
+      "call_sites": [
+        {
+          "file": "backend/tool_router.py",
+          "line": 47,
+          "context": "return rag_upsert([{\"id\": rid, \"text\": content, \"metadata\": {\"filename\": file.filename}}])"
+        },
+        {
+          "file": "backend/tools/__init__.py",
+          "line": 8,
+          "context": "\"rag_upsert\": rag_upsert,"
+        }
+      ]
+    }
+  ],
+  "by_file": {
+    "backend/tools/rag.py": [
+      {
+        "name": "rag_upsert",
+        "kind": "function",
+        "defined_in": "backend/tools/rag.py",
+        "line": 12,
+        "signature": "def rag_upsert(items: List[dict], **kwargs):",
+        "exported": true,
+        "used_in": [
+          "backend/tool_router.py",
+          "backend/tools/__init__.py"
+        ],
+        "file_count": 2,
+        "use_count": 2,
+        "call_sites": [
+          {
+            "file": "backend/tool_router.py",
+            "line": 47,
+            "context": "return rag_upsert([{\"id\": rid, \"text\": content, \"metadata\": {\"filename\": file.filename}}])"
+          },
+          {
+            "file": "backend/tools/__init__.py",
+            "line": 8,
+            "context": "\"rag_upsert\": rag_upsert,"
+          }
+        ]
+      }
+    ]
+  }
+}
